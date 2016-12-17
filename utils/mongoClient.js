@@ -20,7 +20,23 @@ Client.getDB = function (cb, dbName) {
 
 Client.findInDB = function (dbName, collName, query, start, count, callback){
     Client.getDB(function (db) {
-        var coll = db.collection(dbName);
+        var coll = db.collection(collName);
         coll.find(query, {skip: start}).limit(count).toArray(callback);
     }, dbName);    
 };
+
+Client.insertInDB = function (dbName, collName, dbObj, callback) {
+    Client.getDB(function (db) {
+        var coll = db.collection(collName);
+        coll.insert(dbObj, callback);
+    }, dbName);  
+};
+
+Client.updateInDB = function (dbName, collName, query, updateObj, upsert, callback) {
+    Client.getDB(function(db){
+        var coll = db.collection(collName);
+        coll.update(query, updateObj, {upsert: upsert, w:1}, callback);
+    }, dbName);  
+};
+
+module.exports = Client;
