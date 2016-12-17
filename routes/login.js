@@ -10,7 +10,17 @@ router.get('/', function(req, res, next) {
     // Find user with the same userId. if present then check password. Then proceed.
     mongoHelper.findUser(cons.DBName, cons.UserCollection, userId, function (err, results) {
         if(err){
-            res.status(500).json("")
+            res.status(500).json("Error while Logging into the System.");
+        }else{
+            if(results.length > 0){
+                if(results[0].userPasswrd == userPassWrd){
+                    res.redirect("/home?uid=" + userId);
+                }else{
+                    res.status(500).json("Wrong Password try again!!")
+                }
+            }else{
+                res.status(500).json("No user with user %s found in the database", userId);
+            }
         }
     });
 });
