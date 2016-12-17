@@ -4,5 +4,8 @@
 var app = angular.module('MainHomeApp', []);
 
 app.controller('MainHomeCtrl', [
-    '$scope'
+    '$scope',
+    function ($scope) {
+        
+    }
 ]);

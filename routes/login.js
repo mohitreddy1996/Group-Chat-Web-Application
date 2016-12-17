@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoHelper = require('../utils/mongoHelper');
 var cons = require('../utils/constants');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     var userId = req.body.userId;
     var userPassWrd = req.body.userPasswrd;
 
