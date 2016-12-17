@@ -3,9 +3,8 @@
  */
 var app = angular.module('LoginPage', []);
 
-app.controller('MainCtrl', [
-    '$scope',
-    function($scope){
+app.controller('MainCtrl',
+    function($scope, $http){
         $scope.test = 'Real Time Group Chat Application';
 
         $scope.confirmLogin = function(){
@@ -17,11 +16,11 @@ app.controller('MainCtrl', [
             };
 
             // send the data.
-            $http.post('/login', data).success(function (data, status) {
+            $http.post('/login', loginData).success(function (data, status) {
                 console.log("Login Completed Successfully");
             }).error(function (data, status) {
                 console.log("Login Failed!");
             })
         }
     }
-]);
+);

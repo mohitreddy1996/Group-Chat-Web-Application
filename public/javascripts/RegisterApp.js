@@ -3,9 +3,8 @@
  */
 var app = angular.module('RegisterApp', []);
 
-app.controller('MainRegisterApp', [
-    '$scope',
-    function ($scope) {
+app.controller('MainRegisterCtrl',
+    function ($scope, $http) {
         $scope.registerUser = function () {
             var userName = $scope.userName;
             var userId = $scope.userId;
@@ -16,11 +15,11 @@ app.controller('MainRegisterApp', [
                 userPasswrd: userPasswrd
             };
 
-            $http.post('/register', data).success(function (data, success) {
+            $http.post('/register/user', data).success(function (data, success) {
                 console.log("Successfully Registered");
             }).error(function (data, err) {
                 console.log("Error while registering.");
             });
         }
     }
-]);
+);

@@ -4,7 +4,10 @@ var cons = require('../utils/constants');
 var router = express.Router();
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
+router.get('', function (req, res, next) {
+    res.render('register');
+});
+router.post('/user', function(req, res, next) {
     var userName = req.body.userName;
     var userId = req.body.userId;
     var userPasswrd = req.body.userPasswrd;
