@@ -1,0 +1,12 @@
+# specify the files to be added and commited.
+# add the files first.
+git add .
+
+# get the current timings.
+curtime='date'
+
+# commit the changes.
+git commit -m "Automatic Commit at Time : $curtime"
+
+# push the changes to remote.
+git push
