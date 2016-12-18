@@ -22,8 +22,7 @@ router.post('/user', function(req, res, next) {
                     if(err){
                         res.status(500).json("User could not be added");
                     } else{
-                        res.statusCode(200).json("Success");
-                        res.redirect('/');
+                        res.status(200).json("Added successfully!");
                     }
                 });
             }

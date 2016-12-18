@@ -13,7 +13,7 @@ Client.getDB = function (cb, dbName) {
             console.error("Failed to connect to %s, %s", dbUrl, err);
         }else{
             console.log("Mongo Client Connected to : " + dbUrl);
-            cb(dbUrl);
+            cb(db);
         }
     });
 };
