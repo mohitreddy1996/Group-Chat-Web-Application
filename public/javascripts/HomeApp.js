@@ -3,9 +3,8 @@
  */
 var app = angular.module('MainHomeApp', []);
 
-app.controller('MainHomeCtrl', [
-    '$scope',
-    function ($scope) {
+app.controller('MainHomeCtrl',
+    function ($scope, $http) {
         
     }
-]);
+);

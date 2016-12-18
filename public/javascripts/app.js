@@ -12,7 +12,7 @@ app.controller('MainCtrl',
             var passwrd = $scope.userPasswrd;
             var loginData = {
                 userId: userId,
-                passwrd: passwrd
+                userPasswrd: passwrd
             };
 
             // send the data.
