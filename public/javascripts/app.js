@@ -17,7 +17,6 @@ app.controller('MainCtrl',
 
             // send the data.
             $http.post('/login', loginData).success(function (data, status) {
-                console.log("Login Completed Successfully");
             }).error(function (data, status) {
                 console.log("Login Failed!");
             })
