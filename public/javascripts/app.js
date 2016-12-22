@@ -4,8 +4,8 @@
 var app = angular.module('LoginPage', []);
 
 app.controller('MainCtrl',
-    function($scope, $http){
-        $scope.test = 'Real Time Group Chat Application';
+    function($scope, $http, $location, $window){
+        $scope.test = 'To Do Manager';
 
         $scope.confirmLogin = function(){
             var userId = $scope.userId;
@@ -17,6 +17,7 @@ app.controller('MainCtrl',
 
             // send the data.
             $http.post('/login', loginData).success(function (data, status) {
+                $window.location.href = '/home?uid=' + userId;
             }).error(function (data, status) {
                 console.log("Login Failed!");
             })

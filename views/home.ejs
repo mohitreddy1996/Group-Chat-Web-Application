@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Real Chat Application
+            To Do Manager
         </title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -10,6 +10,71 @@
     </head>
 
     <body ng-app="MainHomeApp" ng-controller="MainHomeCtrl">
-        <h2>Welcome to the Home page</h2>
+        <h2>Manage ToDos</h2>
+        <div>
+            <h3>Project Work/External Projects/Knowledgeable things</h3>
+            <div ng-repeat="project in projects">
+                {{project.content}} added on {{project.time | date:'yyyy-MM-dd'}}
+            </div>
+            <br>
+            <form ng-submit="projectAdd()">
+                <input type="text" ng-model="project">
+                <button type="submit">Add work</button>
+            </form>
+        </div>
+
+        <div>
+            <h3>IEEE/WebClub Work</h3>
+            <div ng-repeat="clubWork in clubWorks">
+                {{clubWork.content}} added on {{clubWork.time}}
+            </div>
+            <br>
+            <form ng-submit="clubWorkAdd()">
+                <input type="text" ng-model="clubWork">
+                <button type="submit">Add Club work</button>
+            </form>
+        </div>
+
+        <div>
+            <h3>College Work/Assignments/Projects/Study</h3>
+            <div ng-repeat="acadWork in acadWorks">
+                {{acadWork.content}} added on {{acadWork.time}}
+            </div>
+            <br>
+            <form ng-submit="acadWorkAdd()">
+                <input type="text" ng-model="acadWork">
+                <button type="submit">Add Academic work</button>
+            </form>
+        </div>
+
+        <div>
+            <h3>Personal Life/Home/Divija/Friends</h3>
+            <div ng-repeat="persWork in persWorks">
+                {{persWork.content}} added on {{persWork.time}}
+
+            </div>
+
+            <br>
+
+            <form ng-submit="persWorkAdd()">
+                <input type="text" ng-model="persWork">
+                <button type="submit">Add Personal work</button>
+            </form>
+        </div>
+
+        <div>
+            <h3>Others</h3>
+            <div ng-repeat="other in others">
+                {{other.content}} added on {{other.time}}
+            </div>
+
+            <br>
+
+            <form ng-submit="otherAdd()">
+                <input type="text" ng-model="other">
+                <button type="submit">Add Other workswork</button>
+            </form>
+        </div>
+
     </body>
 </html>

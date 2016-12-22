@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('', function (req, res, next) {
-    var userId = req.query.uid;
-    res.render('home');
+router.route('/')
+    .get(function (req, res) {
+    return res.render('home.ejs', {});
 });
 
 module.exports = router;

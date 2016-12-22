@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
         }else{
             if(results.length > 0){
                 if(results[0].userPasswrd == userPassWrd){
-                    res.redirect("/home?uid=" + userId);
+                    res.redirect('/home?uid=' + userId);
                 }else{
                     res.status(500).json("Wrong Password try again!!")
                 }

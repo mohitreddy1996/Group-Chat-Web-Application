@@ -18,4 +18,12 @@ mongoHelper.findUser = function (dbName, collName, userId, callback) {
     mongoClient.findInDB(dbName, collName, mongoObj, 0, 100, callback);
 };
 
+mongoHelper.addItem = function (dbName, collName, dto, callback) {
+    mongoClient.insertInDB(dbName, collName, dto, callback);  
+};
+
+mongoHelper.findItem = function (dbName, collName, dto, callback) {
+    mongoClient.findInDB(dbName, collName, dto, callback);  
+};
+
 module.exports = mongoHelper;
