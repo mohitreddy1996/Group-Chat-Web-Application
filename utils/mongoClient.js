@@ -40,4 +40,11 @@ Client.updateInDB = function (dbName, collName, query, updateObj, upsert, callba
     }, dbName);  
 };
 
+Client.deleteInDB = function (dbName, collName, query, callback) {
+    Client.getDB(function(db){
+        var coll = db.collection(collName);
+        coll.remove(query, null, callback);
+    }, dbName);
+};
+
 module.exports = Client;

@@ -23,7 +23,15 @@ mongoHelper.addItem = function (dbName, collName, dto, callback) {
 };
 
 mongoHelper.findItem = function (dbName, collName, dto, callback) {
-    mongoClient.findInDB(dbName, collName, dto, callback);  
+    mongoClient.findInDB(dbName, collName, dto, 0, 100, callback);
+};
+
+mongoHelper.updateItem = function (dbName, collName, dto, updateObj, callback) {
+    mongoClient.updateInDB(dbName, collName, dto, updateObj, false, callback);
+};
+
+mongoHelper.deleteItem = function (dbName, collName, dto, callback) {
+    mongoClient.deleteInDB(dbName, collName, dto, callback);  
 };
 
 module.exports = mongoHelper;
