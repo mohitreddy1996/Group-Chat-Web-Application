@@ -1,2 +1,2 @@
-# Group-Chat-Web-Application
-Web Application capable of handling multiple clients. Clients can create groups/chat on different groups.
+# To Do List Manager.
+To Do List Manager. Will make it live for my own use :)
