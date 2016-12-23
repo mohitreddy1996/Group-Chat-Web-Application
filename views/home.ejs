@@ -4,8 +4,21 @@
         <title>
             To Do Manager
         </title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Important: you'll only need one of the Bootcards CSS files below for every platform -->
+
+        <!-- Bootcards CSS for iOS: -->
+        <!-- Bootcards CSS for Android: -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-android.min.css">
+
+        <!-- Bootcards CSS for desktop: -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css">
+
+        <!-- Bootstrap and Bootcards JS -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
         <script src="javascripts/HomeApp.js"></script>
         <link href="stylesheets/simplegrid.css" rel="stylesheet">
         <link href="stylesheets/style.css" rel="stylesheet">
@@ -24,9 +37,17 @@
                     <div class="content">
                         <h4 align="center">To Be Done Tasks</h4>
                         <div align="center" ng-repeat="project in projects">
-                            {{project.content}} added on {{project.time | date:'yyyy-MM-dd'}}
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4><b>{{project.content}}</b></h4>
+                                    <p>{{project.time | date:'yyyy-MM-dd'}}</p>
+                                    <button type="submit" ng-click="markDone(project)">Done</button>
+                                    <button type="submit" ng-click="removeItem(project)">Remove</button>
+                                </div>
+                            </div>
+                            <!--{{project.content}} added on {{project.time | date:'yyyy-MM-dd'}}
                             <button type="submit" ng-click="markDone(project)">Done</button>
-                            <button type="submit" ng-click="removeItem(project)">Remove</button>
+                            <button type="submit" ng-click="removeItem(project)">Remove</button>-->
 
                         </div>
                     </div>
@@ -35,12 +56,18 @@
                     <div class="content">
                         <h4 align="center">Done Tasks</h4>
                         <div align="center" ng-repeat="project in done_projects">
-                            {{project.content}} Done on {{project.time | date:'yyyy-MM-dd'}}
+                            <div class="card">
+                                <div class="card-block">
+                                    <h4><b>{{project.content}}</b></h4>
+                                    <p>{{project.time | date:'yyyy-MM-dd'}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <br>
             <br>
             <div align="center">
                 <form ng-submit="projectAdd()">
