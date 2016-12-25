@@ -5,62 +5,61 @@
             To Do Manager
         </title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Important: you'll only need one of the Bootcards CSS files below for every platform -->
-
-        <!-- Bootcards CSS for iOS: -->
-        <!-- Bootcards CSS for Android: -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-android.min.css">
-
-        <!-- Bootcards CSS for desktop: -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css">
-
-        <!-- Bootstrap and Bootcards JS -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js"></script>
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
         <script src="javascripts/HomeApp.js"></script>
         <link href="stylesheets/simplegrid.css" rel="stylesheet">
         <link href="stylesheets/style.css" rel="stylesheet">
     </head>
 
     <body ng-app="MainHomeApp" ng-controller="MainHomeCtrl">
-        <h2 align="center">Manage ToDos</h2>
+        <div class="w3-round-jumbo w3-blue" style="width: 80%; margin-left: 150px">
+            <h2 align="center">Manage Your Work Here</h2>
+        </div>
         <br>
         <hr class="style18">
 
         <div>
-            <h3 align="center">Project Work/External Projects/Knowledgeable things</h3>
-            <hr class="style2">
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
+                <h3 align="center">Project Work/External Projects/Knowledgeable things</h3>
+            </div>
             <div class="grid">
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">To Be Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-cyan">
+                            <h4 align="center">To Be Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="project in projects">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h4><b>{{project.content}}</b></h4>
-                                    <p>{{project.time | date:'yyyy-MM-dd'}}</p>
-                                    <button type="submit" ng-click="markDone(project)">Done</button>
-                                    <button type="submit" ng-click="removeItem(project)">Remove</button>
-                                </div>
+                            <div class="w3-card-4">
+                                <br>
+                                <h4><b>{{project.content}}</b></h4>
+                                <p>{{project.time | date:'yyyy-MM-dd'}}</p>
+                                <button type="submit" ng-click="markDone(project)">Done</button>
+                                <button type="submit" ng-click="removeItem(project)">Remove</button>
+                                <br>
+                                <br>
                             </div>
+                            <br>
                             <!--{{project.content}} added on {{project.time | date:'yyyy-MM-dd'}}
                             <button type="submit" ng-click="markDone(project)">Done</button>
                             <button type="submit" ng-click="removeItem(project)">Remove</button>-->
 
                         </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-lime">
+                            <h4 align="center">Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="project in done_projects">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h4><b>{{project.content}}</b></h4>
-                                    <p>{{project.time | date:'yyyy-MM-dd'}}</p>
-                                </div>
+                            <div class="w3-card-4">
+                                <h4><b>{{project.content}}</b></h4>
+                                <p>Added on - {{project.time | date:'yyyy-MM-dd'}}</p>
+                                <p>Marked Done on - {{project.doneTime | date:'yyyy-MM-dd'}}</p>
                             </div>
                         </div>
                     </div>
@@ -80,27 +79,48 @@
         <hr class="style18">
 
         <div>
-            <h3 align="center">IEEE/WebClub Work</h3>
-            <hr class="style2">
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
+                <h3 align="center">IEEE/WebClub Work</h3>
+            </div>
+
             <div class="grid">
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">To Be Done Tasks</h4>
-                        <div align="center" ng-repeat="clubWork in clubWorks">
-                            {{clubWork.content}} added on {{clubWork.time  | date:'yyyy-MM-dd'}}
-                            <button type="submit" ng-click="markDone(clubWork)">Done</button>
-                            <button type="submit" ng-click="removeItem(clubWork)">Remove</button>
+                        <div class="w3-round-jumbo w3-cyan">
+                            <h4 align="center">To Be Done Tasks</h4>
                         </div>
+                        <div align="center" ng-repeat="clubWork in clubWorks">
+                            <div class="w3-card-4">
+                                <br>
+                                <h4><b>{{clubWork.content}}</b></h4>
+                                <p>{{clubWork.time | date:'yyyy-MM-dd'}}</p>
+                                <button type="submit" ng-click="markDone(clubWork)">Done</button>
+                                <button type="submit" ng-click="removeItem(clubWork)">Remove</button>
+                                <br>
+                                <br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-lime">
+                            <h4 align="center">Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="clubWork in done_clubWorks">
-                            {{clubWork.content}} Done on {{clubWork.time  | date:'yyyy-MM-dd'}}
+                            <div class="w3-card-4">
+                                <h4><b>{{clubWork.content}}</b></h4>
+                                <p>Added on - {{clubWork.time | date:'yyyy-MM-dd'}}</p>
+                                <p>Marked Done on - {{clubWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br>
+                <br>
             </div>
 
             <br>
@@ -115,27 +135,47 @@
         <hr class="style18">
 
         <div>
-            <h3 align="center">College Work/Assignments/Projects/Study</h3>
-            <hr class="style2">
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
+                <h3 align="center">College Work/Assignments/Projects/Study</h3>
+            </div>
             <div class="grid">
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">To Be Done Tasks</h4>
-                        <div align="center" ng-repeat="acadWork in acadWorks">
-                            {{acadWork.content}} added on {{acadWork.time  | date:'yyyy-MM-dd'}}
-                            <button type="submit" ng-click="markDone(acadWork)">Done</button>
-                            <button type="submit" ng-click="removeItem(acadWork)">Remove</button>
+                        <div class="w3-round-jumbo w3-cyan">
+                            <h4 align="center">To Be Done Tasks</h4>
                         </div>
+                        <div align="center" ng-repeat="acadWork in acadWorks">
+                            <div class="w3-card-4">
+                                <br>
+                                <h4><b>{{acadWork.content}}</b></h4>
+                                <p>{{acadWork.time | date:'yyyy-MM-dd'}}</p>
+                                <button type="submit" ng-click="markDone(acadWork)">Done</button>
+                                <button type="submit" ng-click="removeItem(acadWork)">Remove</button>
+                                <br>
+                                <br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-lime">
+                            <h4 align="center">Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="acadWork in done_acadWorks">
-                            {{acadWork.content}} Done on {{acadWork.time  | date:'yyyy-MM-dd'}}
+                            <div class="w3-card-4">
+                                <h4><b>{{acadWork.content}}</b></h4>
+                                <p>Added on - {{acadWork.time | date:'yyyy-MM-dd'}}</p>
+                                <p>Marked Done on - {{acadWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br>
+                <br>
             </div>
 
 
@@ -151,24 +191,42 @@
         <hr class="style18">
 
         <div>
-            <h3 align="center">Personal Life/Home/Divija/Friends</h3>
-            <hr class="style2">
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
+                <h3 align="center">Personal Life/Home/Divija/Friends</h3>
+            </div>
             <div class="grid">
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">To Be Done Tasks</h4>
-                        <div align="center" ng-repeat="persWork in persWorks">
-                            {{persWork.content}} added on {{persWork.time  | date:'yyyy-MM-dd'}}
-
+                        <div class="w3-round-jumbo w3-cyan">
+                            <h4 align="center">To Be Done Tasks</h4>
                         </div>
+                        <div align="center" ng-repeat="persWork in persWorks">
+                            <div class="w3-card-4">
+                                <br>
+                                <h4><b>{{persWork.content}}</b></h4>
+                                <p>{{persWork.time | date:'yyyy-MM-dd'}}</p>
+                                <button type="submit" ng-click="markDone(persWork)">Done</button>
+                                <button type="submit" ng-click="removeItem(persWork)">Remove</button>
+                                <br>
+                                <br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-lime">
+                            <h4 align="center">Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="persWork in done_persWorks">
-                            {{persWork.content}} Done on {{persWork.time  | date:'yyyy-MM-dd'}}
-
+                            <div class="w3-card-4">
+                                <h4><b>{{persWork.content}}</b></h4>
+                                <p>Added on - {{persWork.time | date:'yyyy-MM-dd'}}</p>
+                                <p>Marked Done on - {{persWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -185,24 +243,42 @@
         <hr class="style18">
 
         <div>
-            <h3 align="center">Others</h3>
-            <hr class="style2">
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
+                <h3 align="center">Others</h3>
+            </div>
             <div class="grid">
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">To be Done Tasks</h4>
-                        <div align="center" ng-repeat="other in others">
-                            {{other.content}} added on {{other.time  | date:'yyyy-MM-dd'}}
-                            <button type="submit" ng-click="markDone(other)">Done</button>
-                            <button type="submit" ng-click="removeItem(other)">Remove</button>
+                        <div class="w3-round-jumbo w3-cyan">
+                            <h4 align="center">To Be Done Tasks</h4>
                         </div>
+                        <div align="center" ng-repeat="other in others">
+                            <div class="w3-card-4">
+                                <br>
+                                <h4><b>{{other.content}}</b></h4>
+                                <p>{{other.time | date:'yyyy-MM-dd'}}</p>
+                                <button type="submit" ng-click="markDone(other)">Done</button>
+                                <button type="submit" ng-click="removeItem(other)">Remove</button>
+                                <br>
+                                <br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
                 <div class="col-1-2">
                     <div class="content">
-                        <h4 align="center">Done Tasks</h4>
+                        <div class="w3-round-jumbo w3-lime">
+                            <h4 align="center">Done Tasks</h4>
+                        </div>
                         <div align="center" ng-repeat="other in done_others">
-                            {{other.content}} Done on {{other.time  | date:'yyyy-MM-dd'}}
+                            <div class="w3-card-4">
+                                <h4><b>{{other.content}}</b></h4>
+                                <p>Added on - {{other.time | date:'yyyy-MM-dd'}}</p>
+                                <p>Marked Done on - {{other.doneTime | date:'yyyy-MM-dd'}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -212,9 +288,11 @@
             <div align="center">
                 <form ng-submit="otherAdd()">
                     <input type="text" ng-model="other">
-                    <button type="submit">Add Other workswork</button>
+                    <button type="submit">Add Other work</button>
                 </form>
             </div>
+            <br>
+            <br>
         </div>
 
         <br>

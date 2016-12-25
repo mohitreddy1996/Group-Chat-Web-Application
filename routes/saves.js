@@ -54,15 +54,16 @@ router.route('/edit')
             'message': message,
             'time': time
         };
-
+        var currTime = new Date();
         var updateObj = {
             '$set' : {
-                'status':true
+                'status':true,
+                'doneTime': currTime 
             }
         };
         mongoHelper.updateItem(cons.DBName, cons.ChatsCollection, obj, updateObj, function (err, results) {
             if(!err){
-                res.status(200).json("Successfully updated!");
+                res.status(200).json({doneTime: currTime});
             } else{
                 res.status(500).json("Error while Updating");
             }

@@ -11,7 +11,8 @@ app.controller('MainHomeCtrl',
         $scope.persWorks=[];
         $scope.others=[];
 
-
+        $scope.markedDone = "";
+        
         $scope.done_projects=[];
         $scope.done_clubWorks=[];
         $scope.done_acadWorks=[];
@@ -54,18 +55,18 @@ app.controller('MainHomeCtrl',
                          $scope.all.push({'content': element.message, 'time': element.time});
                      }else{
                          if (element.todoType == "ACAD_WORK") {
-                             $scope.done_acadWorks.push({'content': element.message, 'time': element.time});
+                             $scope.done_acadWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                          } else if (element.todoType == "PROJECT_WORK") {
-                             $scope.done_projects.push({'content': element.message, 'time': element.time});
+                             $scope.done_projects.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                          } else if (element.todoType == "OTHER_WORK") {
-                             $scope.done_others.push({'content': element.message, 'time': element.time});
+                             $scope.done_others.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                          } else if (element.todoType == "PERS_WORK") {
-                             $scope.done_persWorks.push({'content': element.message, 'time': element.time});
+                             $scope.done_persWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                          } else if (element.todoType == "CLUB_WORK") {
-                             $scope.done_clubWorks.push({'content': element.message, 'time': element.time});
+                             $scope.done_clubWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                          }
 
-                         $scope.done_all.push({'content': element.message, 'time': element.time});
+                         $scope.done_all.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
                      }
                  });
             }).error(function (data, success) {
@@ -194,6 +195,7 @@ app.controller('MainHomeCtrl',
             obj.userId = userId;
             $http.post('/data/edit', obj).success(function (data, status) {
                 var index = $scope.all.indexOf(item);
+                obj.doneTime = new Date();
                 if(index >=0 ){
                     $scope.all.splice(index, 1);
                     $scope.done_all.push(obj);
