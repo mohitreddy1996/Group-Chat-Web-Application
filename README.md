@@ -1,2 +1,2 @@
 # To Do List Manager.
-To Do List Manager. Will make it live for my own use :)
+To Do List Manager to record todos. Made it live for personal use.
