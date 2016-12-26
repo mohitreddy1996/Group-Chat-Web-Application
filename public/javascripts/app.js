@@ -17,7 +17,11 @@ app.controller('MainCtrl',
 
             // send the data.
             $http.post('/login', loginData).success(function (data, status) {
-                $window.location.href = '/home?uid=' + userId;
+                if(status == 500){
+                    console.log("Login Failed!");
+                }else {
+                    $window.location.href = '/home?uid=' + userId;
+                }
             }).error(function (data, status) {
                 console.log("Login Failed!");
             })
