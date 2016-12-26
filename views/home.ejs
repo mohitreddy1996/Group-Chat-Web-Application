@@ -14,15 +14,15 @@
     </head>
 
     <body ng-app="MainHomeApp" ng-controller="MainHomeCtrl">
-        <div class="w3-round-jumbo w3-blue" style="width: 80%; margin-left: 150px">
+        <div class="w3-round-jumbo w3-blue" style="width: 80%; margin-left: 150px; padding-top: 2px; padding-bottom: 2px">
             <h2 align="center">Manage Your Work Here</h2>
         </div>
         <br>
         <hr class="style18">
 
         <div>
-            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
-                <h3 align="center">Project Work/External Projects/Knowledgeable things</h3>
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px; padding-top: 3px; padding-bottom: 3px">
+                <h3 align="center">Projects</h3>
             </div>
             <div class="grid">
                 <div class="col-1-2">
@@ -31,12 +31,13 @@
                             <h4 align="center">To Be Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="project in projects">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-brown">
                                 <br>
                                 <h4><b>{{project.content}}</b></h4>
+                                <h6>{{project.desc}}</h6>
                                 <p>{{project.time | date:'yyyy-MM-dd'}}</p>
-                                <button type="submit" ng-click="markDone(project)">Done</button>
-                                <button type="submit" ng-click="removeItem(project)">Remove</button>
+                                <button class="w3-btn" type="submit" ng-click="markDone(project)">Done</button>
+                                <button class="w3-btn w3-teal" type="submit" ng-click="removeItem(project)">Remove</button>
                                 <br>
                                 <br>
                             </div>
@@ -56,11 +57,15 @@
                             <h4 align="center">Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="project in done_projects">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-khaki">
+                                <br>
                                 <h4><b>{{project.content}}</b></h4>
+                                <h6>{{project.desc}}</h6>
                                 <p>Added on - {{project.time | date:'yyyy-MM-dd'}}</p>
                                 <p>Marked Done on - {{project.doneTime | date:'yyyy-MM-dd'}}</p>
+                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -69,18 +74,24 @@
             <br>
             <br>
             <div align="center">
-                <form ng-submit="projectAdd()">
-                    <input type="text" ng-model="project">
-                    <button type="submit">Add work</button>
-                </form>
+                <div class="w3-card-4 w3-gray" style="width: 40%;">
+                    <form ng-submit="projectAdd()">
+                        <p>Title</p>
+                        <input type="text" ng-model="project">
+                        <p>Description</p>
+                        <input type="text" ng-model="project_description">
+                        <br>
+                        <button class="w3-btn w3-ripple" type="submit">Add work</button>
+                    </form>
+                </div>
             </div>
         </div>
         <br>
         <hr class="style18">
 
         <div>
-            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
-                <h3 align="center">IEEE/WebClub Work</h3>
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px; padding-top: 3px; padding-bottom: 3px">
+                <h3 align="center">Technical Club Work</h3>
             </div>
 
             <div class="grid">
@@ -90,12 +101,13 @@
                             <h4 align="center">To Be Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="clubWork in clubWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-brown">
                                 <br>
                                 <h4><b>{{clubWork.content}}</b></h4>
+                                <h6>{{clubWork.desc}}</h6>
                                 <p>{{clubWork.time | date:'yyyy-MM-dd'}}</p>
-                                <button type="submit" ng-click="markDone(clubWork)">Done</button>
-                                <button type="submit" ng-click="removeItem(clubWork)">Remove</button>
+                                <button class="w3-btn" type="submit" ng-click="markDone(clubWork)">Done</button>
+                                <button class="w3-btn w3-teal" type="submit" ng-click="removeItem(clubWork)">Remove</button>
                                 <br>
                                 <br>
                             </div>
@@ -111,11 +123,15 @@
                             <h4 align="center">Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="clubWork in done_clubWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-khaki">
+                                <br>
                                 <h4><b>{{clubWork.content}}</b></h4>
+                                <h6>{{clubWork.desc}}</h6>
                                 <p>Added on - {{clubWork.time | date:'yyyy-MM-dd'}}</p>
                                 <p>Marked Done on - {{clubWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -125,18 +141,24 @@
 
             <br>
             <div align="center">
-                <form ng-submit="clubWorkAdd()">
-                    <input type="text" ng-model="clubWork">
-                    <button type="submit">Add Club work</button>
-                </form>
+                <div class="w3-card-4 w3-gray" style="width: 40%;">
+                    <form ng-submit="clubWorkAdd()">
+                        <p>Title</p>
+                        <input type="text" ng-model="clubWork">
+                        <p>Description</p>
+                        <input type="text" ng-model="club_description">
+                        <br>
+                        <button class="w3-btn w3-ripple" type="submit">Add work</button>
+                    </form>
+                </div>
             </div>
         </div>
         <br>
         <hr class="style18">
 
         <div>
-            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
-                <h3 align="center">College Work/Assignments/Projects/Study</h3>
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px; padding-top: 3px; padding-bottom: 3px">
+                <h3 align="center">Academics</h3>
             </div>
             <div class="grid">
                 <div class="col-1-2">
@@ -145,12 +167,13 @@
                             <h4 align="center">To Be Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="acadWork in acadWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-brown">
                                 <br>
                                 <h4><b>{{acadWork.content}}</b></h4>
+                                <h6>{{acadWork.desc}}</h6>
                                 <p>{{acadWork.time | date:'yyyy-MM-dd'}}</p>
-                                <button type="submit" ng-click="markDone(acadWork)">Done</button>
-                                <button type="submit" ng-click="removeItem(acadWork)">Remove</button>
+                                <button class="w3-btn" type="submit" ng-click="markDone(acadWork)">Done</button>
+                                <button class="w3-btn w3-teal" type="submit" ng-click="removeItem(acadWork)">Remove</button>
                                 <br>
                                 <br>
                             </div>
@@ -166,11 +189,15 @@
                             <h4 align="center">Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="acadWork in done_acadWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-khaki">
+                                <br>
                                 <h4><b>{{acadWork.content}}</b></h4>
+                                <h6>{{acadWork.desc}}</h6>
                                 <p>Added on - {{acadWork.time | date:'yyyy-MM-dd'}}</p>
                                 <p>Marked Done on - {{acadWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -181,18 +208,24 @@
 
             <br>
             <div align="center">
-                <form ng-submit="acadWorkAdd()">
-                    <input type="text" ng-model="acadWork">
-                    <button type="submit">Add Academic work</button>
-                </form>
+                <div class="w3-card-4 w3-gray" style="width: 40%;">
+                    <form ng-submit="acadWorkAdd()">
+                        <p>Title</p>
+                        <input type="text" ng-model="acadWork">
+                        <p>Description</p>
+                        <input type="text" ng-model="acad_description">
+                        <br>
+                        <button class="w3-btn w3-ripple" type="submit">Add work</button>
+                    </form>
+                </div>
             </div>
         </div>
         <br>
         <hr class="style18">
 
         <div>
-            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
-                <h3 align="center">Personal Life/Home/Divija/Friends</h3>
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px; padding-top: 3px; padding-bottom: 3px">
+                <h3 align="center">Personal Life</h3>
             </div>
             <div class="grid">
                 <div class="col-1-2">
@@ -201,12 +234,13 @@
                             <h4 align="center">To Be Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="persWork in persWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-brown">
                                 <br>
                                 <h4><b>{{persWork.content}}</b></h4>
+                                <h6>{{persWork.desc}}</h6>
                                 <p>{{persWork.time | date:'yyyy-MM-dd'}}</p>
-                                <button type="submit" ng-click="markDone(persWork)">Done</button>
-                                <button type="submit" ng-click="removeItem(persWork)">Remove</button>
+                                <button class="w3-btn" type="submit" ng-click="markDone(persWork)">Done</button>
+                                <button class="w3-btn w3-teal" type="submit" ng-click="removeItem(persWork)">Remove</button>
                                 <br>
                                 <br>
                             </div>
@@ -222,29 +256,39 @@
                             <h4 align="center">Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="persWork in done_persWorks">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-khaki">
+                                <br>
                                 <h4><b>{{persWork.content}}</b></h4>
+                                <h6>{{persWork.desc}}</h6>
                                 <p>Added on - {{persWork.time | date:'yyyy-MM-dd'}}</p>
                                 <p>Marked Done on - {{persWork.doneTime | date:'yyyy-MM-dd'}}</p>
+                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
             <div align="center">
-                <form ng-submit="persWorkAdd()">
-                    <input type="text" ng-model="persWork">
-                    <button type="submit">Add Personal work</button>
-                </form>
+                <div class="w3-card-4 w3-gray" style="width: 40%;">
+                    <form ng-submit="persWorkAdd()">
+                        <p>Title</p>
+                        <input type="text" ng-model="persWork">
+                        <p>Description</p>
+                        <input type="text" ng-model="pers_description">
+                        <br>
+                        <button class="w3-btn w3-ripple" type="submit">Add work</button>
+                    </form>
+                </div>
             </div>
         </div>
         <br>
         <hr class="style18">
 
         <div>
-            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px">
-                <h3 align="center">Others</h3>
+            <div class="w3-round-jumbo w3-teal" style="width: 70%; align-items: center; margin-left: 200px; padding-top: 3px; padding-bottom: 3px">
+                <h3 align="center">Other Works</h3>
             </div>
             <div class="grid">
                 <div class="col-1-2">
@@ -253,12 +297,13 @@
                             <h4 align="center">To Be Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="other in others">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-brown">
                                 <br>
                                 <h4><b>{{other.content}}</b></h4>
+                                <h6>{{other.desc}}</h6>
                                 <p>{{other.time | date:'yyyy-MM-dd'}}</p>
-                                <button type="submit" ng-click="markDone(other)">Done</button>
-                                <button type="submit" ng-click="removeItem(other)">Remove</button>
+                                <button class="w3-btn" type="submit" ng-click="markDone(other)">Done</button>
+                                <button class="w3-btn w3-teal" type="submit" ng-click="removeItem(other)">Remove</button>
                                 <br>
                                 <br>
                             </div>
@@ -274,11 +319,15 @@
                             <h4 align="center">Done Tasks</h4>
                         </div>
                         <div align="center" ng-repeat="other in done_others">
-                            <div class="w3-card-4">
+                            <div class="w3-card-4 w3-khaki">
+                                <br>
                                 <h4><b>{{other.content}}</b></h4>
+                                <h6>{{other.desc}}</h6>
                                 <p>Added on - {{other.time | date:'yyyy-MM-dd'}}</p>
                                 <p>Marked Done on - {{other.doneTime | date:'yyyy-MM-dd'}}</p>
+                                <br>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -286,10 +335,16 @@
 
             <br>
             <div align="center">
-                <form ng-submit="otherAdd()">
-                    <input type="text" ng-model="other">
-                    <button type="submit">Add Other work</button>
-                </form>
+                <div class="w3-card-4 w3-gray" style="width: 40%;">
+                    <form ng-submit="otherAdd()">
+                        <p>Title</p>
+                        <input type="text" ng-model="other">
+                        <p>Description</p>
+                        <input type="text" ng-model="other_description">
+                        <br>
+                        <button class="w3-btn w3-ripple" type="submit">Add work</button>
+                    </form>
+                </div>
             </div>
             <br>
             <br>

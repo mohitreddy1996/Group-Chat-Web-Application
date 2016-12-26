@@ -41,32 +41,32 @@ app.controller('MainHomeCtrl',
                  angular.forEach(data,function (element) {
                      if(element.status == false) {
                          if (element.todoType == "ACAD_WORK") {
-                             $scope.acadWorks.push({'content': element.message, 'time': element.time});
+                             $scope.acadWorks.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                          } else if (element.todoType == "PROJECT_WORK") {
-                             $scope.projects.push({'content': element.message, 'time': element.time});
+                             $scope.projects.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                          } else if (element.todoType == "OTHER_WORK") {
-                             $scope.others.push({'content': element.message, 'time': element.time});
+                             $scope.others.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                          } else if (element.todoType == "PERS_WORK") {
-                             $scope.persWorks.push({'content': element.message, 'time': element.time});
+                             $scope.persWorks.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                          } else if (element.todoType == "CLUB_WORK") {
-                             $scope.clubWorks.push({'content': element.message, 'time': element.time});
+                             $scope.clubWorks.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                          }
 
-                         $scope.all.push({'content': element.message, 'time': element.time});
+                         $scope.all.push({'content': element.message, 'time': element.time, 'desc': element.desc});
                      }else{
                          if (element.todoType == "ACAD_WORK") {
-                             $scope.done_acadWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                             $scope.done_acadWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                          } else if (element.todoType == "PROJECT_WORK") {
-                             $scope.done_projects.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                             $scope.done_projects.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                          } else if (element.todoType == "OTHER_WORK") {
-                             $scope.done_others.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                             $scope.done_others.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                          } else if (element.todoType == "PERS_WORK") {
-                             $scope.done_persWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                             $scope.done_persWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                          } else if (element.todoType == "CLUB_WORK") {
-                             $scope.done_clubWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                             $scope.done_clubWorks.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                          }
 
-                         $scope.done_all.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime});
+                         $scope.done_all.push({'content': element.message, 'time': element.time, 'doneTime': element.doneTime, 'desc': element.desc});
                      }
                  });
             }).error(function (data, success) {
@@ -80,16 +80,18 @@ app.controller('MainHomeCtrl',
                 return;
             }
             var time = new Date();
-            $scope.acadWorks.push({'content' : $scope.acadWork, 'time': time});
-            $scope.all.push({'content' : $scope.acadWork, 'time': time});
+            $scope.acadWorks.push({'content' : $scope.acadWork, 'time': time, 'desc': $scope.acad_description});
+            $scope.all.push({'content' : $scope.acadWork, 'time': time, 'desc': $scope.acad_description});
             var data = {
                 'message': $scope.acadWork,
                 'type': 'ACAD_WORK',
                 'userId': userId,
-                'time': time
+                'time': time,
+                'desc': $scope.acad_description
             };
 
             $scope.acadWork='';
+            $scope.acad_description='';
             
             $http.post('/data/save', data).success(function (data, status) {
                 console.log("Successfully saved!!" + "\nStatus : " + status + "\nData : " + data);
@@ -105,16 +107,17 @@ app.controller('MainHomeCtrl',
                 return;
             }
             var time = new Date();
-            $scope.projects.push({'content': $scope.project, 'time': time});
-            $scope.all.push({'content': $scope.project, 'time': time});
+            $scope.projects.push({'content': $scope.project, 'time': time, 'desc': $scope.project_description});
+            $scope.all.push({'content': $scope.project, 'time': time, 'desc': $scope.project_description});
             var data = {
                 'message': $scope.project,
+                'desc': $scope.project_description,
                 'type': 'PROJECT_WORK',
                 'userId': userId,
                 'time': time
             };
             $scope.project='';
-
+            $scope.project_description='';
             $http.post('/data/save', data).success(function (data, status) {
                 console.log("Successfully saved!!" + "\nStatus : " + status + "\nData : " + data);
             }).error(function (data, status) {
@@ -129,15 +132,17 @@ app.controller('MainHomeCtrl',
                 return;
             }
             var time = new Date();
-            $scope.clubWorks.push({'content': $scope.clubWork, 'time': time});
-            $scope.all.push({'content': $scope.clubWork, 'time': time});
+            $scope.clubWorks.push({'content': $scope.clubWork, 'time': time, 'desc': $scope.club_description});
+            $scope.all.push({'content': $scope.clubWork, 'time': time, 'desc': $scope.club_description});
             var data = {
                 'message': $scope.clubWork,
                 'type': 'CLUB_WORK',
+                'desc': $scope.club_description,
                 'userId': userId,
                 'time': time
             };
             $scope.clubWork='';
+            $scope.club_description='';
             $http.post('/data/save', data).success(function (data, status) {
                 console.log("Successfully saved!!" + "\nStatus : " + status + "\nData : " + data);
             }).error(function (data, status) {
@@ -152,15 +157,17 @@ app.controller('MainHomeCtrl',
                 return;
             }
             var time = new Date();
-            $scope.persWorks.push({'content': $scope.persWork, 'time': time});
-            $scope.all.push({'content': $scope.persWork, 'time': time});
+            $scope.persWorks.push({'content': $scope.persWork, 'time': time, 'desc': $scope.pers_description});
+            $scope.all.push({'content': $scope.persWork, 'time': time, 'desc': $scope.pers_description});
             var data = {
                 'message': $scope.persWork,
                 'type': 'PERS_WORK',
                 'userId': userId,
+                'desc': $scope.pers_description,
                 'time': time
             };
             $scope.persWork='';
+            $scope.pers_description='';
             $http.post('/data/save', data).success(function (data, status) {
                 console.log("Successfully saved!!" + "\nStatus : " + status + "\nData : " + data);
             }).error(function (data, status) {
@@ -174,15 +181,17 @@ app.controller('MainHomeCtrl',
                 return;
             }
             var time = new Date();
-            $scope.others.push({'content': $scope.other, 'time': time});
-            $scope.all.push({'content': $scope.other, 'time': time});
+            $scope.others.push({'content': $scope.other, 'time': time, 'desc': $scope.other_description});
+            $scope.all.push({'content': $scope.other, 'time': time, 'desc': $scope.other_description});
             var data = {
                 'message': $scope.other,
                 'type': 'OTHER_WORK',
                 'userId': userId,
-                'time': time
+                'time': time,
+                'desc': $scope.other_description
             };
             $scope.other='';
+            $scope.other_description='';
             $http.post('/data/save', data).success(function (data, status) {
                 console.log("Successfully saved!!" + "\nStatus : " + status + "\nData : " + data);
             }).error(function (data, status) {
@@ -195,7 +204,7 @@ app.controller('MainHomeCtrl',
             obj.userId = userId;
             $http.post('/data/edit', obj).success(function (data, status) {
                 var index = $scope.all.indexOf(item);
-                obj.doneTime = new Date();
+                obj.doneTime = data.doneTime;
                 if(index >=0 ){
                     $scope.all.splice(index, 1);
                     $scope.done_all.push(obj);

@@ -9,6 +9,7 @@ router.route('/save')
     var todoType = req.body.type;
     var message = req.body.message;
     var time = req.body.time;
+    var desc = req.body.desc;
     var status = false;
     
     var dto = {
@@ -16,7 +17,8 @@ router.route('/save')
         'todoType': todoType,
         'message': message,
         'status': status,
-        'time': time
+        'time': time,
+        'desc': desc
     };
     
     mongoHelper.addItem(cons.DBName, cons.ChatsCollection, dto, function (err, results) {
